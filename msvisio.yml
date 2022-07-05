@@ -16,9 +16,9 @@
         image_path: 'C:\MSVisio2019\VisioPro2019Retail.img'
         state: present
     - name: Running the Installer
-      win_shell: 'E:\Office\Setup64.exe'
+      win_shell: 'D:\Office\Setup64.exe'
       when: not msvisio_installed.stat.exists
     - name: Setting the Product Key
-      win_command: 'cscript ospp.vbs /inpkey:9BGNQ-K37YR-RQHF2-38RQ3-7VCBB'
+      win_command: 'cscript ospp.vbs /inpkey:DVHYN-27KHH-KXH8T-84DF2-YKP79'
       args:
         chdir: 'C:\Program Files\Microsoft Office\Office16'

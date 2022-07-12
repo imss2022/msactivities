@@ -13,8 +13,6 @@
           win_get_url:
              url: 'https://aka.ms/vs/16/release/vs_professional.exe'
              dest: 'C:\Users\Administrator\Downloads\vs_professional.exe'
-      # when: not vs2019_installed.stat.exists
-
         - name: vs2019 | Install Visual Studio 2019 Build Tools
           win_package:
                  path: 'C:\Users\Administrator\Downloads\vs_professional.exe'
@@ -37,15 +35,15 @@
                       #win_shell: |
                       #"vs_setup.exe" --quiet --wait --norestart --lang en-US --productKey BF8Y8-GN2QH-T84XB-QVY3B-RC4DF
           register: imss
-     rescue:
-        - name: Sending an e-mail using Gmail SMTP servers
-          mail:
-            host: smtp.gmail.com
-            port: 587
-            username: imssdevops@gmail.com
-            password: xszpyxymsfhgynbp
-            to: ajay43mudhol@gmail.com
-            subject: Ansible-report
-            body: Error while installing MS Visual Studio 2019. "{{ imss.msg }}"
-          delegate_to: localhost
-          when: imss is failed
+      rescue:
+         - name: Sending an e-mail using Gmail SMTP servers
+           mail:
+             host: smtp.gmail.com
+             port: 587
+             username: imssdevops@gmail.com
+             password: xszpyxymsfhgynbp
+             to: ajay43mudhol@gmail.com
+             subject: Ansible-report
+             body: Error while installing MS Visual Studio 2019. "{{ imss.msg }}"
+           delegate_to: localhost
+           when: imss is failed

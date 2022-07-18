@@ -13,6 +13,10 @@
           win_get_url:
              url: 'https://aka.ms/vs/16/release/vs_professional.exe'
              dest: 'C:\Users\Administrator\Downloads\vs_professional.exe'
+        - name: 'Check free space in C:'
+          win_shell: 'Get-PSDrive C | Select-Object Free | ft -HideTableHeaders'
+          register: freespace
+
         - name: vs2019 | Install Visual Studio 2019 Build Tools
           win_package:
                  path: 'C:\Users\Administrator\Downloads\vs_professional.exe'

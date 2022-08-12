@@ -1,6 +1,6 @@
 ---
 - name: Installing MS office
-  hosts: 3.140.229.8
+  hosts: all
   become: runas
   force_handlers: yes
   ignore_errors: yes

@@ -1,6 +1,6 @@
 ---
 - name: Install Visual Studio
-  hosts: 3.140.229.8
+  hosts: winapps
   # ignore_errors: yes
   become: runas
   tasks:

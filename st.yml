@@ -7,7 +7,7 @@
     - block:
         - name: vs2019 | Check if Visual Studio 2019 Build Tools are installed
           win_stat: path='C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Auxiliary/Build/vcvarsall.bat'
-          register: vs2017_installed
+          register: vs2019_installed
 
         - name: vs2019 | Download the Visual Studio 2019 Build Tools installer
           win_get_url:
